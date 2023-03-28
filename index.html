@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strava OAuth Example</title>
+</head>
+<body>
+    <h1>Strava OAuth Example</h1>
+    <button id="authorizeButton">Authorize with Strava</button>
+
+    <script>
+        document.getElementById('authorizeButton').addEventListener('click', () => {
+            const clientId = '104710';
+            const redirectUri = encodeURIComponent(window.location.href);
+            const responseType = 'code';
+            const scope = 'read';
+
+            const authUrl = `https://www.strava.com/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=${responseType}&scope=${scope}`;
+            window.location.href = authUrl;
+        });
+    </script>
+</body>
+</html>
